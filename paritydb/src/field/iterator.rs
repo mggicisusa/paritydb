@@ -1,4 +1,4 @@
-use field::error::{Result, Error, ErrorKind};
+use field::error::{Result, ErrorKind};
 use field::field_size;
 use field::header::Header;
 
