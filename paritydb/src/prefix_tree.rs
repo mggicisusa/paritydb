@@ -92,8 +92,8 @@ impl PrefixTree {
 	}
 
 	/// Returns an iterator of occupied prefixes.
-	pub fn offset_iter(&self) -> OccupiedOffsetIterator {
-		OccupiedOffsetIterator {
+	pub fn prefix_iter(&self) -> OccupiedPrefixesIterator {
+		OccupiedPrefixesIterator {
 			tree: &self.tree,
 			idx: 0,
 			first_leaf_idx: Self::leaf_index(0, self.prefix_bits),
@@ -108,13 +108,13 @@ impl PrefixTree {
 
 /// An occupied prefixes iterator.
 /// Quickly traverses the tree and returns only prefixes that are occupied.
-pub struct OccupiedOffsetIterator<'a> {
+pub struct OccupiedPrefixesIterator<'a> {
 	tree: &'a BitVec<u8>,
 	idx: usize,
 	first_leaf_idx: usize,
 }
 
-impl<'a> OccupiedOffsetIterator<'a> {
+impl<'a> OccupiedPrefixesIterator<'a> {
 	fn next_idx(&self, mut idx: usize) -> Option<usize> {
 		let mut go_back = false;
 		if idx % 2 == 1 {
@@ -160,7 +160,7 @@ impl<'a> OccupiedOffsetIterator<'a> {
 	}
 }
 
-impl<'a> Iterator for OccupiedOffsetIterator<'a> {
+impl<'a> Iterator for OccupiedPrefixesIterator<'a> {
 	type Item = u32;
 
 	fn next(&mut self) -> Option<Self::Item> {
