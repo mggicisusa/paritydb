@@ -4,8 +4,8 @@ Fast and reliable database, optimised for read operations.
 
 [![Build Status][travis-image]][travis-url]
 
-[travis-image]: https://travis-ci.org/debris/paritydb.svg?branch=master
-[travis-url]: https://travis-ci.org/debris/paritydb
+[travis-image]: https://travis-ci.org/paritytech/paritydb.svg?branch=master
+[travis-url]: https://travis-ci.org/paritytech/paritydb
 
 ![db](./res/db.png)
 
